@@ -2096,6 +2096,10 @@ input, select, textarea {
 			text-decoration: none;
 		}
 
+		#footer .icons a {
+			font-size: 2em; /* Adjust the size here */
+		}
+
 /* Image */
 
 	.image {
