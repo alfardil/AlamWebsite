@@ -2424,7 +2424,7 @@ input, select, textarea {
 		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		background-color: transparent;
-		border-radius: 3px;
+		border-radius: 3.75em;
 		border: 0;
 		box-shadow: inset 0 0 0 2px #fff;
 		color: #fff;
@@ -2714,15 +2714,15 @@ input, select, textarea {
 		}
 
 		.spotlight:nth-child(1) {
-			background-color: rgba(0, 0, 0, 0.075);
+			background-color: rgba(249, 61, 4, 0.075);
 		}
 
 		.spotlight:nth-child(2) {
-			background-color: rgba(0, 0, 0, 0.15);
+			background-color: rgba(7, 62, 4, 0.15);
 		}
 
 		.spotlight:nth-child(3) {
-			background-color: rgba(0, 0, 0, 0.225);
+			background-color: rgba(14, 225, 240, 0.225);
 		}
 
 		.spotlight:nth-child(4) {
@@ -3588,6 +3588,7 @@ input, select, textarea {
 		-ms-justify-content: center;
 		justify-content: center;
 		cursor: default;
+		width: 100%;
 		height: 100vh;
 		min-height: 35em;
 		overflow: hidden;
@@ -3596,7 +3597,16 @@ input, select, textarea {
 		background: rgba(0,0,0,0.5);
 		backdrop-filter: blur(10px);
 		padding: 50px 0;
-		color: #ffff
+		color: #ffff;
+	}
+
+	#banner .inner {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100%;
 	}
 
 		#banner h2 {
@@ -3723,8 +3733,7 @@ input, select, textarea {
 
 			#banner {
 				padding: 7em 3em 5em 3em ;
-				height: auto;
-				min-height: 0;
+				height: 100vh;
 			}
 
 				#banner h2 {
