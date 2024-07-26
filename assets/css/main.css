@@ -7,6 +7,15 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.fade-in-visible {
+    opacity: 1;
+}
+
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -2688,6 +2697,27 @@ input, select, textarea {
 		display: -webkit-flex;
 		display: -ms-flex;
 		display: flex;
+		overflow: hidden;
+		box-sizing: border-box;
+	}
+
+	.spotlight .video {
+		-moz-order: 1;
+		-webkit-order: 1;
+		-ms-order: 1;
+		order: 1;
+		width: 40%;
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+	}
+
+	.spotlight .video video {
+		width: 100%;
+		border-radius: 10px;
+		padding: 0;
+		margin: 0;
+		display: block;
 	}
 
 		.spotlight .image {
@@ -2712,6 +2742,7 @@ input, select, textarea {
 			order: 2;
 			max-width: 48em;
 			width: 60%;
+			box-sizing: border-box;
 		}
 
 		.spotlight:nth-child(2n) {
@@ -2763,7 +2794,7 @@ input, select, textarea {
 
 		@media screen and (max-width: 1280px) {
 
-			.spotlight .image {
+			.spotlight .image, .spotlight .video {
 				width: 45%;
 			}
 
@@ -2778,11 +2809,11 @@ input, select, textarea {
 			.spotlight {
 				display: block;
 			}
-/*
-				.spotlight br {
-					display: none;
-				}
-*/
+
+			.spotlight .video {
+				width: 100%;
+			}
+
 				.spotlight .image {
 					width: 100%;
 				}
