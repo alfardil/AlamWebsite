@@ -2565,6 +2565,14 @@ input, select, textarea {
 		width: 100%;
 	}
 
+	.custom-breaks br {
+		margin: 10px 10; /* Adjust this value to make the line break smaller */
+		display: block; /* Ensure the line break behaves like a block element */
+		line-height: 3; /* Adjust the line height if necessary */
+	}
+	
+	
+
 		.features li {
 			padding: 4em 4em 2em 6em ;
 			display: block;
@@ -2623,19 +2631,19 @@ input, select, textarea {
 			}
 
 			.features li:nth-child(1) {
-				border-top-left-radius: 3px;
+				border-top-left-radius: 20px;
 			}
 
 			.features li:nth-child(2) {
-				border-top-right-radius: 3px;
+				border-top-right-radius: 20px;
 			}
 
 			.features li:nth-last-child(1) {
-				border-bottom-right-radius: 3px;
+				border-bottom-right-radius: 20px;
 			}
 
 			.features li:nth-last-child(2) {
-				border-bottom-left-radius: 3px;
+				border-bottom-left-radius: 20px;
 			}
 
 			@media screen and (max-width: 980px) {
@@ -2692,7 +2700,7 @@ input, select, textarea {
 		}
 
 			.spotlight .image img {
-				border-radius: 0;
+				border-radius: 10px;
 				width: 100%;
 			}
 
