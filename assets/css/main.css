@@ -2752,11 +2752,11 @@ input, select, textarea {
 		}
 
 		.spotlight:nth-child(3) {
-			background-color: rgba(14, 225, 240, 0.225);
+			background-color: rgba(240, 14, 217, 0.191)
 		}
 
 		.spotlight:nth-child(4) {
-			background-color: rgba(0, 0, 0, 0.3);
+			background-color: rgba(63, 109, 43, 0.3);
 		}
 
 		.spotlight:nth-child(5) {
