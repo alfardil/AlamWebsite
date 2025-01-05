@@ -2780,6 +2780,8 @@ button:disabled,
   display: flex;
   overflow: hidden;
   box-sizing: border-box;
+  padding: 0;
+  margin: 0 auto;
 }
 
 .spotlight .video {
@@ -2788,8 +2790,8 @@ button:disabled,
   -ms-order: 1;
   order: 1;
   width: 40%;
-  padding: 0;
-  margin: 0;
+  padding: 0 !important;
+  margin: 0 !important;
   box-sizing: border-box;
 }
 
@@ -2842,15 +2844,15 @@ button:disabled,
 }
 
 .spotlight:nth-child(3) {
-  background-color: rgba(240, 14, 217, 0.191);
+  background-color: rgba(3, 3, 3, 0.191);
 }
 
 .spotlight:nth-child(4) {
-  background-color: rgba(63, 109, 43, 0.3);
+  background-color: rgba(240, 14, 217, 0.191);
 }
 
 .spotlight:nth-child(5) {
-  background-color: rgba(0, 0, 0, 0.375);
+  background-color: rgba(63, 109, 43, 0.3);
 }
 
 .spotlight:nth-child(6) {
@@ -2891,6 +2893,7 @@ button:disabled,
 
   .spotlight .video {
     width: 100%;
+    margin: 0 auto;
   }
 
   .spotlight .image {
