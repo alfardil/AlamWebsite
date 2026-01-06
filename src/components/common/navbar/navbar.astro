@@ -1,0 +1,181 @@
+---
+import { FiMenu, FiX } from "react-icons/fi";
+import { FaLinkedinIn, FaGithub } from "react-icons/fa6";
+
+const links = [
+  { name: "Projects", href: "#projects" },
+];
+
+const linkedInLink = "https://www.linkedin.com/in/alfardil/";
+const githubLink = "https://github.com/alfardil";
+---
+
+<nav class="relative">
+  <input id="menu-toggle" type="checkbox" class="peer hidden md:hidden" />
+
+  <!-- Navbar -->
+  <nav
+    class="fixed top-0 left-0 w-full z-50 bg-gray-950/20 backdrop-blur-md"
+  >
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="/" class="flex items-center">
+        <h3 class="text-white text-3xl font-bold">Alfardil Alam</h3>
+      </a>
+
+      <!-- Desktop Links -->
+      <ul id="navbar-links" class="hidden md:flex items-center space-x-8">
+        {
+          links.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="nav-link font-bold transition-colors duration-300 text-white hover:text-[#7d2dac]"
+              >
+                {link.name}
+              </a>
+            </li>
+          ))
+        }
+
+        <li class="flex items-center gap-3">
+          <a
+            href={linkedInLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedinIn
+              className="h-7 w-7 cursor-pointer hover:text-[#7836cf]"
+            />
+          </a>
+
+          <a
+            href={githubLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            <FaGithub className="h-7 w-7 cursor-pointer hover:text-[#7836cf]" />
+          </a>
+        </li>
+      </ul>
+
+      <!-- Mobile right-side icons -->
+      <div class="flex md:hidden items-center gap-4 z-50">
+        <label for="menu-toggle" class="cursor-pointer">
+          <FiMenu className="h-7 w-7 text-white peer-checked:hidden" />
+          <FiX className="h-7 w-7 text-white hidden peer-checked:block" />
+        </label>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Overlay (mobile only) -->
+  <label
+    for="menu-toggle"
+    class="fixed inset-0 bg-black/60 hidden peer-checked:block cursor-pointer z-40 md:hidden"
+  ></label>
+
+  <div
+    class="fixed top-0 right-0 h-full w-64 bg-gray-900 shadow-lg transform translate-x-full transition-transform duration-300 peer-checked:translate-x-0 z-50 md:translate-x-full md:hidden"
+  >
+    <div class="flex justify-end p-4">
+      <label for="menu-toggle" class="cursor-pointer">
+        <FiX className="h-7 w-7 text-white" />
+      </label>
+    </div>
+
+    <ul id="navbar-links-mobile" class="flex flex-col space-y-6 mt-6 ml-6">
+      {
+        links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="nav-link-mobile text-lg font-bold text-white hover:text-[#69c7c7] transition-colors duration-300"
+            >
+              {link.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</nav>
+
+<script>
+  (function () {
+    function markActiveLinks() {
+      const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
+      const desktopLinks = Array.from(
+        document.querySelectorAll("#navbar-links .nav-link")
+      );
+      const mobileLinks = Array.from(
+        document.querySelectorAll("#navbar-links-mobile .nav-link-mobile")
+      );
+
+      const allLinks = [...desktopLinks, ...mobileLinks];
+
+      allLinks.forEach((link) => {
+        const hrefAttr = link.getAttribute("href");
+        const href = hrefAttr?.replace(/\/$/, "") || "" || "/";
+
+        if (href === currentPath) {
+          link.classList.add("text-[#7d2dac]", "font-extrabold");
+          link.classList.remove("text-white");
+        } else {
+          link.classList.remove("text-[#7d2dac]", "font-extrabold");
+          if (!link.classList.contains("hover:text-[#7d2dac]")) {
+            link.classList.add("text-white");
+          }
+        }
+      });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", markActiveLinks);
+    } else {
+      markActiveLinks();
+    }
+
+    window.addEventListener("popstate", markActiveLinks);
+    document.addEventListener("astro:page-load", markActiveLinks);
+    document.addEventListener("astro:after-swap", markActiveLinks);
+    window.addEventListener("load", () => setTimeout(markActiveLinks, 50));
+
+    // Handle anchor link clicks with smooth scroll
+    function handleAnchorClicks() {
+      const allLinks = Array.from(document.querySelectorAll("a[href^='#']"));
+      
+      allLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          const href = link.getAttribute("href");
+          if (href && href.startsWith("#")) {
+            const targetId = href.substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+              e.preventDefault();
+              targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+              
+              // Close mobile menu if open
+              const menuToggle = document.getElementById("menu-toggle");
+              if (menuToggle && menuToggle.checked) {
+                menuToggle.checked = false;
+              }
+            }
+          }
+        });
+      });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", handleAnchorClicks);
+    } else {
+      handleAnchorClicks();
+    }
+
+    document.addEventListener("astro:page-load", handleAnchorClicks);
+    document.addEventListener("astro:after-swap", handleAnchorClicks);
+  })();
+</script>

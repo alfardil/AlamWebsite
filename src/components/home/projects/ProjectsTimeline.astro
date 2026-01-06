@@ -1,0 +1,424 @@
+---
+const projects = [
+  {
+    title: "Codebloom",
+    titleColor: "#01B56A",
+    accentColor: "#01B56A",
+    description:
+      "Developed a competitive coding platform using React & SpringBoot, enabling college students to track & compare LeetCode progress on a real-time leaderboard. Reverse engineered GraphQL queries from leetcode.com to bypass rate-limiting, tracking 12,000+ questions with 210+ users. Optimized SQL queries and RESTful APIs with Postgres, implementing cron jobs for automated data fetching.",
+    technologies: ["React", "SpringBoot", "GraphQL", "Postgres", "SQL"],
+    video: "/images/codebloom_demo_v2.mp4",
+    links: [
+      {
+        label: "Github",
+        href: "https://github.com/tahminator/codebloom",
+        icon: "github",
+      },
+      {
+        label: "Website",
+        href: "https://codebloom.patinanetwork.org/",
+        icon: "website",
+      },
+    ],
+    badge: "200+ users",
+    badgeEmoji: "🔥",
+  },
+  {
+    title: "Thestral",
+    titleColor: "#ffffff",
+    accentColor: "#ffffff",
+    description:
+      "Built a FastAPI developer tool that ingests GitHub repositories to generate system design diagrams and provide granular code context, accelerating open source contributions. Engineered an asynchronous RAG pipeline with LangChain and pgvector, implementing concurrent batching to reduce repository indexing latency by 60%+ while managing 300k+ token workloads.",
+    technologies: ["FastAPI", "LangChain", "pgvector", "Python"],
+    video: "/images/Thestral_Demo.mp4",
+    links: [
+      {
+        label: "Github",
+        href: "https://github.com/alfardil/Thestral",
+        icon: "github",
+      },
+    ],
+    badge: "🌞 summer intern project",
+  },
+  {
+    title: "Delta",
+    titleColor: "#B87333",
+    accentColor: "#B87333",
+    description:
+      "An AI-powered GitHub idle that automatically detects merge conflicts and provides AI assistance to resolve them. When conflicts occur during a push, the idle displays them and offers an AI-powered solution button. Users can provide context to help the AI understand which changes to keep, streamlining the merge conflict resolution process.",
+    technologies: ["React", "TypeScript", "Go", "PostgreSQL", "Gemini", "RAG"],
+    video: "/images/delta_demo.mp4",
+    links: [
+      {
+        label: "Github",
+        href: "https://github.com/tahminator/ccny-byte-hacks-2025",
+        icon: "github",
+      },
+      {
+        label: "Devpost",
+        href: "https://devpost.com/software/delta-jrms1i",
+        icon: "devpost",
+      },
+    ],
+    badge: "WINNER",
+    award: "BYTE Hacks - Best Use of Google Products Overall",
+  },
+  {
+    title: "MAMG Tracker",
+    titleColor: "#4C3898",
+    accentColor: "#4C3898",
+    description:
+      "Developed a job aggregator for Meta, Apple, Microsoft, Amazon, and Google that ranks listings based on user preferences. Built with Flask and MongoDB backend, featuring automated daily scrapers using Selenium and a three-tier preference scoring system for personalized job matching.",
+    technologies: [
+      "Flask",
+      "MongoDB",
+      "Selenium",
+      "Python",
+      "Docker",
+      "GitHub Actions",
+    ],
+    video: "/images/MAMG_Demo.mp4",
+    links: [
+      {
+        label: "Github",
+        href: "https://github.com/swe-students-fall2025/5-final-last-dance",
+        icon: "github",
+      },
+    ],
+    badge: "class project 🤓",
+    award: "we got an A!",
+  },
+  {
+    title: "Paw & Order",
+    titleColor: "#FF69B4",
+    accentColor: "#FF69B4",
+    description:
+      "An LLM-powered web game designed for children to improve their debate and conversation skills. Players enter a virtual courthouse debate room, receive randomly assigned stances, and participate in one-minute debate rounds. Built with React, MongoDB, and OpenAI API, creating an interactive and stress-free environment that helps kids build conversational confidence and refine reasoning skills.",
+    technologies: ["React", "TypeScript", "MongoDB", "OpenAI API"],
+    image: "/images/paw_and_order_pic.jpg",
+    links: [
+      {
+        label: "Github",
+        href: "https://github.com/alfardil/Hack-at-Brown-2025",
+        icon: "github",
+      },
+      {
+        label: "Devpost",
+        href: "https://devpost.com/software/paw-order",
+        icon: "devpost",
+      },
+    ],
+    badge: "WINNER",
+    award: "Best Use of MongoDB Atlas - Hack@Brown 2025",
+  },
+  {
+    title: "Aurangzeb",
+    titleColor: "#6591BD",
+    accentColor: "#6591BD",
+    description:
+      "Created an e-commerce website with modern UI/UX. Integrated payment gateways through Stripe, shopping cart functionality utilzing TanStack, and database management through Prisma with user authentication.",
+    technologies: ["Typescript", "NextJS", "Postgres", "Tailwind CSS"],
+    video: "/images/aurangzeb-video.mp4",
+    badge: "for my friend's brand! 🛍️",
+  },
+];
+---
+
+<section id="projects" class="py-20 bg-gray-950">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-white">
+      Projects
+    </h2>
+
+    <div class="relative">
+      <div
+        class="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#7836cf] via-[#69c7c7] to-[#7836cf] transform md:-translate-x-1/2"
+      >
+      </div>
+
+      <div class="space-y-24">
+        {
+          projects.map((project, index) => (
+            <div
+              class={`flex flex-col md:flex-row items-center gap-8 project-item relative ${
+                index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+              }`}
+              data-project-index={index}
+            >
+              <div class="absolute left-8 md:left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-[#7836cf] rounded-full border-4 border-gray-950 z-10" />
+
+              <div
+                class={`flex-1 max-w-2xl ${index % 2 === 0 ? "md:pr-8" : "md:pl-8"} order-2 md:order-1`}
+              >
+                <div class="bg-gray-900 rounded-lg p-6 border border-gray-800 h-full">
+                  <div class="flex items-center gap-3 mb-3">
+                    {project.badge && (
+                      <span
+                        class={`inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold rounded-full ${
+                          project.badge === "WINNER"
+                            ? project.accentColor
+                              ? project.accentColor === "#ffffff" ||
+                                project.accentColor === "#fff" ||
+                                project.accentColor.toLowerCase() === "white"
+                                ? "text-gray-900"
+                                : "text-white"
+                              : "bg-yellow-500 text-gray-900"
+                            : project.accentColor
+                              ? project.accentColor === "#ffffff" ||
+                                project.accentColor === "#fff" ||
+                                project.accentColor.toLowerCase() === "white"
+                                ? "text-gray-900"
+                                : "text-white"
+                              : "bg-primary text-white"
+                        }`}
+                        style={
+                          project.accentColor
+                            ? `background-color: ${project.accentColor}`
+                            : project.badge === "WINNER"
+                              ? undefined
+                              : undefined
+                        }
+                      >
+                        {project.badge === "WINNER" && <span>🏆</span>}
+                        {project.badgeEmoji && project.badge !== "WINNER" && (
+                          <span>{project.badgeEmoji}</span>
+                        )}
+                        {project.badge}
+                      </span>
+                    )}
+                    {project.award && (
+                      <span class="text-xs text-gray-400 italic">
+                        {project.award}
+                      </span>
+                    )}
+                  </div>
+                  <h3
+                    class="text-3xl font-bold mb-4"
+                    style={`color: ${project.titleColor}`}
+                  >
+                    {project.title}
+                  </h3>
+                  <p class="text-gray-300 mb-4 leading-relaxed">
+                    {project.description}
+                  </p>
+                  <div class="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.map((tech) => (
+                      <span class="px-3 py-1 text-sm bg-gray-800 text-gray-300 rounded-full">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <div class="flex gap-4">
+                    {project.links &&
+                      project.links.map((link) => (
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          data-tooltip={link.label}
+                          class={`instant-tooltip flex items-center justify-center px-4 py-2 rounded-lg transition-all duration-150 hover:opacity-90 ${
+                            project.accentColor
+                              ? project.accentColor === "#ffffff" ||
+                                project.accentColor === "#fff" ||
+                                project.accentColor.toLowerCase() === "white"
+                                ? "bg-gray-800"
+                                : ""
+                              : "bg-primary hover:bg-secondary"
+                          }`}
+                          style={
+                            project.accentColor
+                              ? project.accentColor === "#ffffff" ||
+                                project.accentColor === "#fff" ||
+                                project.accentColor.toLowerCase() === "white"
+                                ? undefined
+                                : `background-color: ${project.accentColor}`
+                              : undefined
+                          }
+                          aria-label={link.label}
+                        >
+                          {link.icon === "github" && (
+                            <img
+                              src="/svg/github-mark.svg"
+                              alt="GitHub"
+                              class="w-6 h-6"
+                              style="filter: brightness(0) invert(1);"
+                            />
+                          )}
+                          {link.icon === "website" && (
+                            <img
+                              src="/svg/website.svg"
+                              alt="Website"
+                              class="w-6 h-6 invert"
+                            />
+                          )}
+                          {link.icon === "devpost" && (
+                            <img
+                              src="/svg/devpost.svg"
+                              alt="Devpost"
+                              class="w-6 h-6 invert"
+                            />
+                          )}
+                        </a>
+                      ))}
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex-1 max-w-2xl order-1 md:order-2">
+                <div class="rounded-lg overflow-hidden border border-gray-800 shadow-lg aspect-video">
+                  {project.video ? (
+                    <video
+                      class="w-full h-full object-cover"
+                      autoplay
+                      loop
+                      muted
+                      playsinline
+                    >
+                      <source src={project.video} type="video/mp4" />
+                    </video>
+                  ) : project.image ? (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      class="w-full h-full object-cover"
+                    />
+                  ) : null}
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .project-item {
+    opacity: 0;
+    transform: translateY(50px);
+    transition:
+      opacity 0.6s ease-out,
+      transform 0.6s ease-out;
+  }
+
+  .project-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .instant-tooltip {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .instant-tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    white-space: nowrap;
+    font-size: 14px;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 1000;
+    pointer-events: none;
+  }
+
+  .instant-tooltip:hover::after {
+    visibility: visible;
+    opacity: 1;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observerOptions = {
+      threshold: 0.3,
+      rootMargin: "0px 0px -100px 0px",
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, observerOptions);
+
+    const projectItems = document.querySelectorAll(".project-item");
+    projectItems.forEach((item) => {
+      observer.observe(item);
+    });
+  });
+</script>
+
+<section class="py-20 bg-gray-950">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-white">
+      Extra!
+    </h2>
+
+    <div class="flex flex-col md:flex-row items-center gap-8 justify-center">
+      <div class="flex-1 max-w-2xl">
+        <div class="bg-gray-900 rounded-lg p-6 border border-gray-800">
+          <div class="flex items-center gap-3 mb-3">
+            <span
+              class="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold rounded-full text-white"
+              style="background-color: #899656"
+            >
+              Captain! 👨
+            </span>
+          </div>
+          <h3 class="text-3xl font-bold mb-4" style="color: #899656">
+            Ultimate Frisbee
+          </h3>
+          <p class="text-gray-300 mb-4 leading-relaxed">
+            Handled more than $15,000 in alumni donations and school funding to
+            compete at multiple out-of-state tournaments with a roster of 25
+            athletes, culminating in State Championships and Regionals.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span
+              class="px-3 py-1 text-sm bg-gray-800 text-gray-300 rounded-full"
+            >
+              NYU Men's Ultimate Frisbee
+            </span>
+            <span
+              class="px-3 py-1 text-sm bg-gray-800 text-gray-300 rounded-full"
+            >
+              Stuyvesant Sticky Fingers
+            </span>
+          </div>
+          <div class="flex gap-4">
+            <a
+              href="https://youtu.be/OKV6Lqw8Pmk?si=c6qRX9FDNXNvhATR&t=11"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-tooltip="Team Highlights"
+              class="instant-tooltip px-4 py-2 text-white font-semibold rounded-lg transition-all duration-150 hover:opacity-90"
+              style="background-color: #899656"
+            >
+              Team Highlights
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex-1 max-w-2xl">
+        <div
+          class="rounded-lg overflow-hidden border border-gray-800 shadow-lg"
+        >
+          <video class="w-full h-auto" autoplay loop muted playsinline>
+            <source src="/images/frisbee.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

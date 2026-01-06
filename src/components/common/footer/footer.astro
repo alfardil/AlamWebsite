@@ -1,0 +1,26 @@
+---
+import SocialIcons from "../icons/icons.jsx";
+---
+
+<footer class="bg-gray-950 text-white">
+  <div
+    class="container mx-auto flex flex-col items-center justify-center gap-8 px-6 py-12 lg:flex-row lg:justify-between lg:px-20"
+  >
+    <!-- Logo -->
+    <a href="/" class="flex items-center">
+      <h3 class="text-white text-4xl font-bold">Alfardil Alam</h3>
+    </a>
+
+    <!-- Social Media Links -->
+    <div class="flex space-x-4">
+      <SocialIcons client:visible />
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div
+    class="w-full border-t border-gray-600 py-10 text-center text-sm text-gray-500"
+  >
+    alfardil.alam@nyu.edu
+  </div>
+</footer>

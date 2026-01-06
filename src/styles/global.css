@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Google Sans Code";
+  src: url("/fonts/Google_Sans_Code/GoogleSansCode-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Google Sans Code";
+  src: url("/fonts/Google_Sans_Code/GoogleSansCode-Italic-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Google Sans Code", sans-serif;
+}
+
+.primary {
+  color: #7836cf;
+}
+.secondary {
+  color: #512092;
+}
+.bg-primary {
+  background-color: #7836cf;
+}
+.bg-secondary {
+  background-color: #512092;
+}
+.text-primary {
+  color: #7836cf;
+}
+
+.hover-text-secondary:hover {
+  color: #7836cf;
+}
+.hover-bg-secondary:hover {
+  background-color: #7836cf;
+}
+.hover\:bg-secondary:hover {
+  background-color: #512092;
+}
+.hover\:text-secondary:hover {
+  color: #512092;
+}
+
+@keyframes gradientMove {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(-250px) translateY(120px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+
+@keyframes gradientMove2 {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(250px) translateY(-120px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+
+.animate-gradientMove {
+  animation: gradientMove 8s ease-in-out infinite alternate;
+}
+
+.animate-gradientMove2 {
+  animation: gradientMove2 8s ease-in-out infinite alternate;
+}
