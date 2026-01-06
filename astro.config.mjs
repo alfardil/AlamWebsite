@@ -12,4 +12,7 @@ export default defineConfig({
   },
   // Enable React to support React JSX components.
   integrations: [react()],
+  redirects: {
+    "/resume": "/Alfardil_Resume.pdf",
+  },
 });
