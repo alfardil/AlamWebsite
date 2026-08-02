@@ -2,9 +2,7 @@
 import { FiMenu, FiX } from "react-icons/fi";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa6";
 
-const links = [
-  { name: "Projects", href: "#projects" },
-];
+const links = [{ name: "Projects", href: "#projects" }];
 
 const linkedInLink = "https://www.linkedin.com/in/alfardil/";
 const githubLink = "https://github.com/alfardil";
@@ -14,9 +12,7 @@ const githubLink = "https://github.com/alfardil";
   <input id="menu-toggle" type="checkbox" class="peer hidden md:hidden" />
 
   <!-- Navbar -->
-  <nav
-    class="fixed top-0 left-0 w-full z-50 bg-gray-950/20 backdrop-blur-md"
-  >
+  <nav class="fixed top-0 left-0 w-full z-50 bg-gray-950/20 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <!-- Logo -->
       <a href="/" class="flex items-center">
@@ -108,10 +104,10 @@ const githubLink = "https://github.com/alfardil";
     function markActiveLinks() {
       const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
       const desktopLinks = Array.from(
-        document.querySelectorAll("#navbar-links .nav-link")
+        document.querySelectorAll("#navbar-links .nav-link"),
       );
       const mobileLinks = Array.from(
-        document.querySelectorAll("#navbar-links-mobile .nav-link-mobile")
+        document.querySelectorAll("#navbar-links-mobile .nav-link-mobile"),
       );
 
       const allLinks = [...desktopLinks, ...mobileLinks];
@@ -146,18 +142,21 @@ const githubLink = "https://github.com/alfardil";
     // Handle anchor link clicks with smooth scroll
     function handleAnchorClicks() {
       const allLinks = Array.from(document.querySelectorAll("a[href^='#']"));
-      
+
       allLinks.forEach((link) => {
         link.addEventListener("click", (e) => {
           const href = link.getAttribute("href");
           if (href && href.startsWith("#")) {
             const targetId = href.substring(1);
             const targetElement = document.getElementById(targetId);
-            
+
             if (targetElement) {
               e.preventDefault();
-              targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
-              
+              targetElement.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+
               // Close mobile menu if open
               const menuToggle = document.getElementById("menu-toggle");
               if (menuToggle && menuToggle.checked) {
